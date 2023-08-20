@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RunGroopWebApp.Data;
+using RunGroopWebApp.Data.Interfaces;
 using RunGroopWebApp.Models;
 
 namespace RunGroopWebApp.Controllers
@@ -8,7 +9,7 @@ namespace RunGroopWebApp.Controllers
     public class RaceController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public RaceController(ApplicationDbContext context)
+        public RaceController(ApplicationDbContext context, IRaceRepository raceRepository)
         {
             _context = context;
         }
