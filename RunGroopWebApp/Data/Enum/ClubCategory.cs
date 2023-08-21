@@ -2,7 +2,7 @@
 {
     public enum ClubCategory
     {
-        RoadRunner,
+        RoadRunner =1,
         Womens,
         Trail,
         Endurance,

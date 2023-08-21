@@ -2,7 +2,7 @@
 {
     public enum RaceCategory
     {
-        Marathon,
+        Marathon=1,
         Ultra,
         FiveKilo,
         HalfMarathon
