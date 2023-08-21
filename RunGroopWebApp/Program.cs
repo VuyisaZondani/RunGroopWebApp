@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using RunGroopWebApp.Data;
+using RunGroopWebApp.Data.Helpers;
 using RunGroopWebApp.Data.Interfaces;
 using RunGroopWebApp.Repository;
+using RunGroopWebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 builder.Services.AddScoped<IClubRepository, ClubRepository>();
 builder.Services.AddScoped<IRaceRepository, RaceRepository>();
+builder.Services.AddScoped<IPhotoServices, PhotoService>();
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
 
 var app = builder.Build();
