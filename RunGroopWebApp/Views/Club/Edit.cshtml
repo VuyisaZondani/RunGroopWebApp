@@ -1,8 +1,9 @@
 ﻿@using RunGroopWebApp.Data.Enum;
 @using RunGroopWebApp.ViewModels;
-@model CreateClubViewModel
+@model EditClubViewModel
 
-<form nethod="post" asp-action="Create" enctype="multipart/form-data">
+<form nethod="post" asp-action="Edit" enctype="multipart/form-data">
+    <input type="hidden" value="AddressId" id="AddressId"/>
     <div class="form-group">
         <label asp-for="Title">Title</label>
         <input asp-for="Title" class="form-control" placeholder="Title">
@@ -10,7 +11,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Description">Description</label>
-        <input asp-for="Description" class="form-control"  placeholder="Description">
+        <input asp-for="Description" class="form-control" placeholder="Description">
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
@@ -41,8 +42,6 @@
         <input asp-for="Image" type="file" class="form-control" placeholder="image">
         <span asp-validation-for="Image" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-    
+
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>

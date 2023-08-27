@@ -16,7 +16,7 @@
     
     <div class="form-group">
         <label asp-for="RaceCategory">Club Category</label>
-        <select asp-for="RaceCategory" asp-items="@Html.GetEnumSelectList<RaceCategory>()">
+        <select class="form-control" asp-for="RaceCategory" asp-items="@Html.GetEnumSelectList<RaceCategory>()">
             <option>--Select--</option>
         </select>
         <span asp-validation-for="RaceCategory" class="text-danger"></span>
