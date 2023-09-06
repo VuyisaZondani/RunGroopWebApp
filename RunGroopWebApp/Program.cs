@@ -25,6 +25,7 @@ builder.Services.AddIdentity<User, IdentityRole>()
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
+builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
 
 var app = builder.Build();
 if(args.Length == 1 && args[0].ToLower() == "seeddata")
