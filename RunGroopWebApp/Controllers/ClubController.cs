@@ -11,11 +11,13 @@ namespace RunGroopWebApp.Controllers
     {
         private readonly IClubRepository _clubRepository;
         private readonly IPhotoServices _photoServices;
-        public ClubController(IClubRepository clubRepository, IPhotoServices photoServices)
+        //adding functionality for the server to return app UserID
+        private readonly IHttpContextAccessor _httpcontextAccessor;
+        public ClubController(IClubRepository clubRepository, IPhotoServices photoServices, IHttpContextAccessor httpcontextAccessor)
         {
             _clubRepository = clubRepository;
             _photoServices = photoServices;
-
+            _httpcontextAccessor = httpcontextAccessor;
         }
         //Returning a List
         public async Task<IActionResult> Index()
@@ -32,7 +34,10 @@ namespace RunGroopWebApp.Controllers
         }
         public async Task<IActionResult> Create()
         {
-            return View();
+            //retrieves httpcontext userId
+            var currentUserId = _httpcontextAccessor.HttpContext.User.GetUserId();
+            var createClubViewModel = new CreateClubViewModel { AppUserId = currentUserId };
+            return View(createClubViewModel);
         }
         [HttpPost]
         public async Task<IActionResult> Create(CreateClubViewModel clubVM)
@@ -45,6 +50,8 @@ namespace RunGroopWebApp.Controllers
                     Title = clubVM.Title,
                     Description = clubVM.Description,
                     Image = result.Url.ToString(),
+                    UserId = clubVM.AppUserId,
+                    ClubCategory = clubVM.ClubCategory,
                     Address = new Address
                     {
                         Street = clubVM.Address.Street,
