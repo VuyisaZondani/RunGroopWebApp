@@ -1,18 +1,31 @@
-﻿using RunGroopWebApp.Data.Interfaces;
+﻿using RunGroopWebApp.Data;
+using RunGroopWebApp.Data.Interfaces;
 using RunGroopWebApp.Models;
 
 namespace RunGroopWebApp.Repository
 {
     public class DashboardRepository : IDashboardRepository
     {
-        public Task<List<Club>> GetAllUserClubs()
+        private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public DashboardRepository(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
-            throw new NotImplementedException();
+            _context = context;
+            _httpContextAccessor = httpContextAccessor;
+        }
+        public async Task<List<Club>> GetAllUserClubs()
+        {
+            var currentUser = _httpContextAccessor.HttpContext?.User;
+            var userClubs = _context.Clubs.Where(r => r.User.Id == currentUser.ToString());
+            return userClubs.ToList();
         }
 
-        public Task<List<Race>> GetAllUserRaces()
+        public async Task<List<Race>> GetAllUserRaces()
         {
-            throw new NotImplementedException();
+            var currentUser = _httpContextAccessor.HttpContext?.User;
+            var userRaces = _context.Races.Where(r => r.User.Id == currentUser.ToString());
+            return userRaces.ToList();
         }
     }
 }
