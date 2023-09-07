@@ -116,7 +116,8 @@ namespace RunGroopWebApp.Controllers
                 Description = raceVM.Description,
                 Image = photoResult.Url.ToString(),
                 AddressId = raceVM.AddressId,
-                Address = raceVM.Address
+                Address = raceVM.Address,
+                 RaceCategory = raceVM.RaceCategory
             };
 
             _raceRepository.Update(race);

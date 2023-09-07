@@ -117,7 +117,8 @@ namespace RunGroopWebApp.Controllers
                 Description = clubVM.Description,
                 Image = photoResult.Url.ToString(),
                 AddressId = clubVM.AddressId,
-                Address = clubVM.Address
+                Address = clubVM.Address,
+                ClubCategory = clubVM.ClubCategory
             };
 
             _clubRepository.Update(club);
