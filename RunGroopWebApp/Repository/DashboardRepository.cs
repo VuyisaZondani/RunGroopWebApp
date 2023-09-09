@@ -27,5 +27,11 @@ namespace RunGroopWebApp.Repository
             var userRaces = _context.Races.Where(r => r.User.Id == currentUser);
             return userRaces.ToList();
         }
+        public async Task<User> GetUserById(string id)
+        {
+
+            return await _context.Users.FindAsync(id);
+
+        }
     }
 }

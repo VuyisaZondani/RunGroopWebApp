@@ -8,6 +8,9 @@ namespace RunGroopWebApp.Models
     {    
         public int? Pace { get; set; }
         public int? Kilos { get; set; }
+        public string? ProfileImageUrl { get; set; }
+        public string? City { get; set; }
+        public string? Province { get; set; }
         //Links addesses
         [ForeignKey("Address")]
         public int? AddressId { get; set; }
