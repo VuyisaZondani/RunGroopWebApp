@@ -1,4 +1,6 @@
-﻿namespace RunGroopWebApp.ViewModels
+﻿using RunGroopWebApp.Data.Enum;
+
+namespace RunGroopWebApp.ViewModels
 {
     public class EditUserDashboardViewModel
     {
@@ -7,6 +9,7 @@
         public int? Kilos { get; set; }
         public string? ProfileImageUrl { get; set; }
         public string? City { get; set; }
+        public Provinces Provinces { get; set; }
         public string? Province { get; set; }
         public IFormFile Image { get; set; }
     }
