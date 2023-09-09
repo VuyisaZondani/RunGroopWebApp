@@ -24,7 +24,8 @@ namespace RunGroopWebApp.Controllers
                     Id = user.Id,
                     UserName = user.UserName,
                     Pace = user.Pace,
-                    Kilos = user.Kilos
+                    Kilos = user.Kilos,
+                    ProfileImageUrl = user.ProfileImageUrl
                 };
                 result.Add(userViewModel);
             }

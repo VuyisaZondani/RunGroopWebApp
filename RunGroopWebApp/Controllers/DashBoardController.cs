@@ -27,7 +27,7 @@ namespace RunGroopWebApp.Controllers
             user.Kilos = editVM.Kilos;
             user.ProfileImageUrl = photoResult.Url.ToString();
             user.City = editVM.City;
-            user.Province = editVM.Province;
+            user.Provinces = editVM.Provinces;
         }
         public async  Task<IActionResult> Index()
         {
@@ -52,7 +52,7 @@ namespace RunGroopWebApp.Controllers
                 Kilos = user.Kilos,
                 ProfileImageUrl = user.ProfileImageUrl,
                 City = user.City,
-                Province = user.Province
+                Provinces = user.Provinces
             };
             return View(editUserViewModel);
         }
