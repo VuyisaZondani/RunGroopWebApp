@@ -1,5 +1,39 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using RunGroopWebApp.Data.Enum;
+@using RunGroopWebApp.ViewModels
+@model EditUserDashboardViewModel
+
+<form method="post" asp-action="EditUserProfile" enctype="multipart/form-data">
+    <input type="hidden" id="Id" name="Id" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Pace">Pace</label>
+        <input asp-for="Pace" class="form-control" placeholder="Pace">
+        <span asp-validation-for="Pace" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Kilos">Kilometers Covered</label>
+        <input asp-for="Kilos" class="form-control" placeholder="Kilometers Covered">
+        <span asp-validation-for="Kilos" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="City">City</label>
+        <input asp-for="City" class="form-control" placeholder="City">
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Province">Province</label>
+        <select asp-for="Province" asp-items="@Html.GetEnumSelectList<Provinces>()" class="form-control">
+            <option selected="selected" value="">--Select--</option>
+        </select>
+        <span asp-validation-for="Province" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Image">Profile Image</label>
+        <input asp-for="Image" type="file" class="form-control" placeholder="image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+</form>
