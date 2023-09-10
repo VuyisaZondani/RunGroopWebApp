@@ -4,19 +4,22 @@
 
 <form nethod="post" asp-action="Create" enctype="multipart/form-data">
     <input type="hidden" id="AppUserId" name="AppUserId" asp-for="AppUserId"/>
+
+    <h1>Create Yourself a Running Club</h1>
+
     <div class="form-group">
-        <label asp-for="Title">Title</label>
-        <input asp-for="Title" class="form-control" placeholder="Title">
+        <label asp-for="Title">Running Club Name</label>
+        <input asp-for="Title" class="form-control" placeholder="Running Club Name...">
         <span asp-validation-for="Title" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Description">Description</label>
-        <input asp-for="Description" class="form-control"  placeholder="Description">
+        <input asp-for="Description" class="form-control"  placeholder="Description...">
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="ClubCategory">Club Category</label>
+        <label asp-for="ClubCategory">Type of Running Club</label>
         <select asp-for="ClubCategory" asp-items="@Html.GetEnumSelectList<ClubCategory>()" class="form-control">
             <option selected="selected" value="">--Select--</option>
         </select>
@@ -24,18 +27,20 @@
     </div>
     <div class="form-group">
         <label asp-for="Address.Street">Street</label>
-        <input asp-for="Address.Street" class="form-control" placeholder="Street">
+        <input asp-for="Address.Street" class="form-control" placeholder="Street...">
         <span asp-validation-for="Address.Street" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Address.City">City</label>
-        <input asp-for="Address.City" class="form-control" placeholder="City">
+        <input asp-for="Address.City" class="form-control" placeholder="City...">
         <span asp-validation-for="Address.City" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Address.Province">Street</label>
-        <input asp-for="Address.Province" class="form-control" placeholder="Province">
-        <span asp-validation-for="Address.Province" class="text-danger"></span>
+        <label asp-for="Province">Province</label>
+        <select asp-for="Province" asp-items="@Html.GetEnumSelectList<Provinces>()" class="form-control">
+            <option selected="selected" value="">--Select--</option>
+        </select>
+        <span asp-validation-for="Province" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Image">Image</label>
