@@ -2,6 +2,7 @@
 using RunGroopWebApp.Data;
 using RunGroopWebApp.Data.Interfaces;
 using RunGroopWebApp.Models;
+using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Repository
 {
@@ -19,7 +20,8 @@ namespace RunGroopWebApp.Repository
 
         public bool Delete(User user)
         {
-            throw new NotImplementedException();
+            _context.Remove(user);
+            return Save();
         }
 
         public async Task<IEnumerable<User>> GetAllUsers()
@@ -31,7 +33,10 @@ namespace RunGroopWebApp.Repository
         {
             return await _context.Users.FindAsync(id);
         }
-
+        public async Task<User> GetUserByIdNoTracking(string id)
+        {
+            return await _context.Users.Where(u => u.Id == id).AsNoTracking().FirstOrDefaultAsync();
+        }
         public bool Save()
         {
             var saved = _context.SaveChanges();
