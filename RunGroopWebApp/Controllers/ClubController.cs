@@ -30,6 +30,18 @@ namespace RunGroopWebApp.Controllers
         public async Task<IActionResult> Detail(int id)
         {
             Club club = await _clubRepository.GetByIdAsync(id);
+            var createClubViewModel = new CreateClubViewModel()
+            {
+                Province = club.Province,
+                Address = new Address
+                {
+                    Street = club.Address.Street,
+                    City = club.Address.City,
+                    Provinces = club.Address.Provinces,
+
+                }
+            };
+            
             return View(club);
         }
         public async Task<IActionResult> Create()
@@ -52,11 +64,13 @@ namespace RunGroopWebApp.Controllers
                     Image = result.Url.ToString(),
                     UserId = clubVM.AppUserId,
                     ClubCategory = clubVM.ClubCategory,
+                    Province = clubVM.Province,
                     Address = new Address
                     {
                         Street = clubVM.Address.Street,
                         City = clubVM.Address.City,
-                        Province = clubVM.Address.Province,
+                        Provinces = clubVM.Address.Provinces,
+                        
                     }
                 };
                 _clubRepository.Add(club);
@@ -80,6 +94,7 @@ namespace RunGroopWebApp.Controllers
                 Description = club.Description,
                 AddressId = club.AddressId,
                 Address = club.Address,
+                Province = club.Province,
                 URL = club.Image,
                 ClubCategory = club.ClubCategory
             };

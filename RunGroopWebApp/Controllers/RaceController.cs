@@ -55,7 +55,7 @@ namespace RunGroopWebApp.Controllers
                     {
                         Street = raceVM.Address.Street,
                         City = raceVM.Address.City,
-                        Province = raceVM.Address.Province,
+                        Provinces = raceVM.Address.Provinces,
                     }
                 };
                 _raceRepository.Add(race);
@@ -117,7 +117,7 @@ namespace RunGroopWebApp.Controllers
                 Image = photoResult.Url.ToString(),
                 AddressId = raceVM.AddressId,
                 Address = raceVM.Address,
-                 RaceCategory = raceVM.RaceCategory
+                RaceCategory = raceVM.RaceCategory
             };
 
             _raceRepository.Update(race);
