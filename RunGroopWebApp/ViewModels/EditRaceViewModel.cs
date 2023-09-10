@@ -12,6 +12,7 @@ namespace RunGroopWebApp.ViewModels
         public string? URL { get; set; }
         public int AddressId { get; set; }
         public Address Address { get; set; }
+        public Provinces Provinces { get; set; }
         public RaceCategory RaceCategory { get; set; }
     }
 }
