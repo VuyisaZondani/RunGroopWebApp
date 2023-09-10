@@ -1,0 +1,31 @@
+﻿@using RunGroopWebApp.ViewModels
+@model UserViewModel
+
+<form method="post" asp-action="EditProfile" enctype="multipart/form-data">
+    <input type="hidden" id="Id" name="Id" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="UserName">Username</label>
+        <input asp-for="UserName" class="form-control" placeholder="Username">
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Pace">Pace</label>
+        <input asp-for="Pace" class="form-control" placeholder="Pace">
+        <span asp-validation-for="Pace" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Kilos">Kilometers Covered</label>
+        <input asp-for="Kilos" class="form-control" placeholder="Kilometers Covered">
+        <span asp-validation-for="Kilos" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image">Image</label>
+        <input asp-for="Image" type="file" class="form-control" placeholder="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+</form>
