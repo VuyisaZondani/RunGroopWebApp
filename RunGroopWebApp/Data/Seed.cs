@@ -28,7 +28,7 @@ namespace RunGroopWebApp.Data
                             {
                                 Street = "123 Main St",
                                 City = "Charlotte",
-                                Province = "NC"
+                                Provinces = "NC"
                             }
                          },
                         new Club()
@@ -41,7 +41,7 @@ namespace RunGroopWebApp.Data
                             {
                                 Street = "123 Main St",
                                 City = "Charlotte",
-                                Province = "NC"
+                                Provinces = "NC"
                             }
                         },
                         new Club()
@@ -54,7 +54,7 @@ namespace RunGroopWebApp.Data
                             {
                                 Street = "123 Main St",
                                 City = "Charlotte",
-                                Province = "NC"
+                                Provinces = "NC"
                             }
                         },
                         new Club()
@@ -67,7 +67,7 @@ namespace RunGroopWebApp.Data
                             {
                                 Street = "123 Main St",
                                 City = "Michigan",
-                                Province = "NC"
+                                Provinces = "NC"
                             }
                         }
                     });
@@ -88,7 +88,7 @@ namespace RunGroopWebApp.Data
                             {
                                 Street = "123 Main St",
                                 City = "Charlotte",
-                                Province = "NC"
+                                Provinces = "NC"
                             }
                         },
                         new Race()
@@ -102,7 +102,7 @@ namespace RunGroopWebApp.Data
                             {
                                 Street = "123 Main St",
                                 City = "Charlotte",
-                                Province = "NC"
+                                Provinces = "NC"
                             }
                         }
                     });
@@ -139,7 +139,7 @@ namespace RunGroopWebApp.Data
                         {
                             Street = "47 Clyde Street",
                             City = "Port Elizabeth",
-                            Province = "Eastern Cape"
+                            Provinces = "Eastern Cape"
                         }
                     };
                     await userManager.CreateAsync(newAdminUser, "Coding@1234?");
@@ -160,7 +160,7 @@ namespace RunGroopWebApp.Data
                         {
                             Street = "123 Main St",
                             City = "Charlotte",
-                            Province = "NC"
+                            Provinces = "NC"
                         }
                     };
                     await userManager.CreateAsync(newAppUser, "Coding@1234?");
